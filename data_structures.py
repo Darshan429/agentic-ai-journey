@@ -73,9 +73,9 @@ def count_words(text):
 count_words("The cat and the hat")
 count_words("hello - hello")
 
-assert(count_words("Hello, hello!") == {"hello":2} ), "Punctuation need to be removed"
-assert(count_words("") == {}), "Key cannot be blank!"
-assert(count_words("hello - Hello") == {"hello":2}), "Key cannot be blank"
+assert count_words("Hello, hello!") == {"hello":2}, "Punctuation need to be removed"
+assert count_words("") == {} , "empty text should give an empty dictionary"
+assert count_words("hello - Hello") == {"hello":2}, "Key cannot be blank"
 
 assert count_words("a A b") == {"a": 2, "b": 1}
 
@@ -90,7 +90,7 @@ def second_largest(numbers):
             second = num
     return second if second!=float('-inf') else None
 
-assert(second_largest([-2,10,-9,-1,1])==-1), "Code should evaluate negative numbers too"
+assert(second_largest([-2,10,-9,-1,1])==1), "Code should evaluate negative numbers too"
 assert(second_largest([1,1,1,1])==None), "Second largest is strictly smaller than the First"
 assert(second_largest([0])==None), "Default value should be none"
             
@@ -107,9 +107,11 @@ def only_in_first(list_a, list_b):
             ans.append(item)
     return ans
 
+only_in_first([1,2,3],[3,2,1])
+
 assert (only_in_first([],[1,2,3,5])==[]), "Input is empty"
-assert (only_in_first([1,1,1],[2,1,1])==[1]), "Each number should occur only once"
-assert (only_in_first([],[])==[]), ""
+assert (only_in_first([1,1,1],[2,1,1])==set()), "Each number should occur only once"
+assert (only_in_first([1,2,3],[3,2,1])==set()), "No matching should return empty set"
 
 a = [1, 2, 3, 4, 2]
 b = [3, 4, 5]
@@ -146,7 +148,8 @@ print("set: ", set_time)
 
 
 
-
+assert 1 == 2, "this should fail"
+print("reached the end")
 
 
 

@@ -22,15 +22,15 @@ class BankAccount:
     def withdraw(self,amount):
         if(amount <= 0):
             print("Withdrawl amount must be greater than zero")
-            return False
+            return self._balance
         if(self._balance < amount):
             print("Insufficient Balance!")
-            return False
+            return self._balance
         print("Request processing...")
         self._balance -= amount
         print("Amount withdrawn successfully!")
         print(f"Current Balance is: {self._balance}")
-        return True
+        return self._balance
 
 class SavingsAccount(BankAccount):
     # Here rate is percentage,It credits that rate% of cuurent balance to user account
@@ -49,7 +49,7 @@ user1.withdraw(10000)
 user1.withdraw(-123)
 user1.withdraw(10000000)
 
-print(user1._balance = 5)
+
 
 user2 = SavingsAccount('James',100000)
 user2.add_interest()
@@ -64,6 +64,6 @@ demo_saving_acc = SavingsAccount('Jake',1000)
 assert demo_user.deposit(500) == 1500, "After deposit current balance should increased to added amount"
 assert demo_user.withdraw(0) == False, "Withdrawl amount cannot be zero"
 assert demo_saving_acc.add_interest(5) == 1000+(5/100) * 1000, "Only specified rate amount should be credited"
-
+assert demo_user.withdraw(0) == 1000, "Amount should be greater than Zero"
 
 1050.00 == 1050
